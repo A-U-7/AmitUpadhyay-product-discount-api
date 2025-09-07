@@ -62,7 +62,7 @@ class DiscountControllerTest {
     }
 
     @Test
-    void calculateDiscount_WithValidRequest_ReturnsOkResponse() throws Exception {
+    void calculateDiscount_WithValidRequest_ReturnsCreateResponse() throws Exception {
         // Given
         when(discountService.calculateDiscount(any(DiscountRequestDto.class))).thenReturn(mockResponse);
 
@@ -82,7 +82,7 @@ class DiscountControllerTest {
     }
 
     @Test
-    void calculateDiscountAndSave_WithValidRequest_ReturnsOkResponse() throws Exception {
+    void calculateDiscountAndSave_WithValidRequest_ReturnsCreateResponse() throws Exception {
         // Given
         when(discountService.calculateDiscountAndSave(any(DiscountRequestDto.class))).thenReturn(mockResponse);
 
