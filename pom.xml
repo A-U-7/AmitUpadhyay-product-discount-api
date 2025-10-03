@@ -20,6 +20,16 @@
     <properties>
         <java.version>21</java.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <sonar.host.url>http://sonarqube:9000</sonar.host.url>
+        <sonar.projectKey>product-discount-api</sonar.projectKey>
+        <sonar.projectName>Product Discount API</sonar.projectName>
+        <sonar.projectVersion>1.0.0</sonar.projectVersion>
+        <sonar.coverage.exclusions>
+            **/com/example/productdiscountapi/model/**,
+            **/com/example/productdiscountapi/dto/**,
+            **/com/example/productdiscountapi/exception/**,
+            **/com/example/productdiscountapi/ProductDiscountApiApplication.java
+        </sonar.coverage.exclusions>
     </properties>
 
     <dependencies>
@@ -109,6 +119,30 @@
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
